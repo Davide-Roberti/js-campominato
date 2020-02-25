@@ -10,10 +10,10 @@ var difficoltaScelta = parseInt(prompt('scegli un livello di difficoltà: 0 = fa
 
 
 switch (difficoltaScelta) {
-    case difficoltaScelta == 0:
+    case 0:
         var difficolta = 100;
         break;
-    case difficoltaScelta == 1:
+    case 1:
         var difficolta = 80;
         break;
     default:
