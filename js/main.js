@@ -11,18 +11,22 @@ var arrayNumeriInseriti = [];
 var sentinella = false;
 while ((arrayNumeriInseriti.length < difficolta - campoMinato.length) && (sentinella == false)) {
     var numeroInserito = parseInt(prompt('inserisci un numero tra 1 e ' + difficolta));
-    if (!arrayNumeriInseriti.includes(numeroInserito)) {
-        if (!campoMinato.includes(numeroInserito)) {
-            arrayNumeriInseriti.push(numeroInserito);
-            if (arrayNumeriInseriti.length == difficolta - campoMinato.length) {
-                alert('HAI VINTO!')
+    if (numeroInserito > 0 && numeroInserito < difficolta) {
+        if (!arrayNumeriInseriti.includes(numeroInserito)) {
+            if (!campoMinato.includes(numeroInserito)) {
+                arrayNumeriInseriti.push(numeroInserito);
+                if (arrayNumeriInseriti.length == difficolta - campoMinato.length) {
+                    alert('HAI VINTO!')
+                }
+            } else {
+                alert('BOOOOOOOOOOOOOOM!!!!!')
+                sentinella = true;
             }
         } else {
-            alert('BOOOOOOOOOOOOOOM!!!!!')
-            sentinella = true;
+            alert('hai già inserito questo numero')
         }
     } else {
-        alert('hai già inserito questo numero')
+        alert('il numero da inserire DEVE essere compreso tra 1 e ' + difficolta);
     }
 }
 
