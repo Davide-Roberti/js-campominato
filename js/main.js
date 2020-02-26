@@ -11,13 +11,18 @@ var arrayNumeriInseriti = [];
 var sentinella = false;
 while ((arrayNumeriInseriti.length < difficolta - campoMinato.length) && (sentinella == false)) {
     var numeroInserito = parseInt(prompt('inserisci un numero tra 1 e ' + difficolta));
-    if (campoMinato.includes(numeroInserito)) {
-        alert ('BOOOOOOOOOM!')
-        sentinella = true;
-    } else if (arrayNumeriInseriti.includes(numeroInserito)) {
-        var numeroInserito = parseInt(prompt('hai già inserito questo numero, inseriscine uno diverso tra 1 e ' + difficolta));
+    if (!arrayNumeriInseriti.includes(numeroInserito)) {
+        if (!campoMinato.includes(numeroInserito)) {
+            arrayNumeriInseriti.push(numeroInserito);
+            if (arrayNumeriInseriti.length == difficolta - campoMinato.length) {
+                alert('HAI VINTO!')
+            }
+        } else {
+            alert('BOOOOOOOOOOOOOOM!!!!!')
+            sentinella = true;
+        }
     } else {
-        arrayNumeriInseriti.push(numeroInserito);
+        alert('hai già inserito questo numero')
     }
 }
 
