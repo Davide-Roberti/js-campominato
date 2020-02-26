@@ -11,22 +11,26 @@ var arrayNumeriInseriti = [];
 var sentinella = false;
 while ((arrayNumeriInseriti.length < difficolta - campoMinato.length) && (sentinella == false)) {
     var numeroInserito = parseInt(prompt('inserisci un numero tra 1 e ' + difficolta));
-    if (numeroInserito > 0 && numeroInserito < difficolta) {
-        if (!arrayNumeriInseriti.includes(numeroInserito)) {
-            if (!campoMinato.includes(numeroInserito)) {
-                arrayNumeriInseriti.push(numeroInserito);
-                if (arrayNumeriInseriti.length == difficolta - campoMinato.length) {
-                    alert('HAI VINTO!')
+    if (!isNaN(numeroInserito)) {
+        if (numeroInserito > 0 && numeroInserito <= difficolta) {
+            if (!arrayNumeriInseriti.includes(numeroInserito)) {
+                if (!campoMinato.includes(numeroInserito)) {
+                    arrayNumeriInseriti.push(numeroInserito);
+                    if (arrayNumeriInseriti.length == difficolta - campoMinato.length) {
+                        alert('HAI VINTO!')
+                    }
+                } else {
+                    alert('BOOOOOOOOOOOOOOM!!!!!')
+                    sentinella = true;
                 }
             } else {
-                alert('BOOOOOOOOOOOOOOM!!!!!')
-                sentinella = true;
+                alert('hai già inserito questo numero')
             }
         } else {
-            alert('hai già inserito questo numero')
+            alert('il numero da inserire DEVE essere compreso tra 1 e ' + difficolta);
         }
     } else {
-        alert('il numero da inserire DEVE essere compreso tra 1 e ' + difficolta);
+        alert('ti pare di aver inserito un numero?')
     }
 }
 
@@ -35,19 +39,19 @@ console.log('i numeri BOMBA erano: ' + campoMinato);
 
 function cambiaDifficolta () {
     var difficoltaScelta = parseInt(prompt('scegli un livello di difficoltà: 0 = facile, 1 = medio, 2 = difficile'))
-    switch (difficoltaScelta) {
-        case 0:
-            var possibilita = 100;
-            break;
-        case 1:
-            var possibilita = 80;
-            break;
-        case 2:
-            var possibilita = 50;
-            break;
-        default:
-            var possibilita = 100;
-    }
+        switch (difficoltaScelta) {
+            case 0:
+                var possibilita = 100;
+                break;
+            case 1:
+                var possibilita = 80;
+                break;
+            case 2:
+                var possibilita = 50;
+                break;
+            default:
+                var possibilita = 100;
+        }
     return possibilita;
 }
 
